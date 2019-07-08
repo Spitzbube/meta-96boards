@@ -5,8 +5,8 @@ DESCRIPTION = "96boards-poplar kernel"
 DEPENDS_append = " dosfstools-native mtools-native u-boot-poplar"
 
 PV = "4.9+git${SRCPV}"
-SRCREV = "e153b53cbd7047d7e6863c1850dda751f4a7f333"
-SRC_URI = "git://github.com/96boards-poplar/linux.git;protocol=https;branch=poplar-4.9;name=kernel \
+SRCREV = "b16712dcadfd802eebbc278b8f6fd202d78821a9"
+SRC_URI = "git://github.com/spitzbube/hisilicon-linux.git;protocol=https;branch=test/disable-msp;name=kernel \
 "
 
 S = "${WORKDIR}/git"
