@@ -8,9 +8,9 @@ SRC_URI = "git://github.com/linaro/poplar-arm-trusted-firmware.git;name=atf;bran
 
 S = "${WORKDIR}/git"
 
-require atf.inc
+require atf-poplar.inc
 
-COMPATIBLE_MACHINE = "poplar"
+COMPATIBLE_MACHINE = "poplar|hi3798cv200-stb"
 
 # ATF requires u-boot.bin file. Ensure it's deployed before we compile.
 do_compile[depends] += "u-boot-poplar:do_deploy"
@@ -20,7 +20,7 @@ do_compile() {
       CROSS_COMPILE=${TARGET_PREFIX} \
       all \
       fip \
-      PLAT=${COMPATIBLE_MACHINE} \
+      PLAT=poplar \
       SPD=none \
       BL33=${DEPLOY_DIR_IMAGE}/u-boot.bin
 }

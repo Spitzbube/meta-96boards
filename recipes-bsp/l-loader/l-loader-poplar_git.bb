@@ -3,7 +3,7 @@ SUMMARY = "Loader to switch from aarch32 to aarch64 and boot"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e8c1458438ead3c34974bc0be3a03ed6"
 
-COMPATIBLE_MACHINE = "poplar"
+COMPATIBLE_MACHINE = "poplar|hi3798cv200-stb"
 DEPENDS += " atf-poplar coreutils-native util-linux-native"
 
 inherit deploy pythonnative

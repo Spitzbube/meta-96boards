@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/96boards-poplar/linux.git;protocol=https;branch=popl
 
 S = "${WORKDIR}/git"
 
-COMPATIBLE_MACHINE = "poplar"
+COMPATIBLE_MACHINE = "poplar|hi3798cv200-stb"
 KERNEL_IMAGETYPE ?= "Image"
 
 # make[3]: *** [scripts/extract-cert] Error 1
