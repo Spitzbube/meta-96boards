@@ -10,6 +10,7 @@ SRC_URI = "file://Makefile \
            file://cfg.mak \
            file://source/common/include/hi_common.h \
            file://source/common/include/hi_debug.h \
+           file://source/common/include/hi_math.h \
            file://source/common/include/hi_module.h \
            file://source/common/include/hi_osal.h \
            file://source/common/include/hi_type.h \
@@ -122,6 +123,7 @@ SRC_URI = "file://Makefile \
            file://source/msp/drv/include/hi_drv_edid.h \
            file://source/msp/drv/include/hi_drv_hdmi.h \
            file://source/msp/drv/include/hi_drv_pdm.h \
+           file://source/msp/drv/include/hi_drv_pq.h \
            file://source/msp/drv/include/hi_drv_vdec.h \
            file://source/msp/drv/include/hi_drv_video.h \
            file://source/msp/drv/include/hi_drv_vpss.h \
@@ -325,9 +327,45 @@ SRC_URI = "file://Makefile \
            file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_vid.h \
            file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_wbc.h \
            file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_ip_define.h \
+           file://source/msp/drv/pq/Makefile \
+           file://source/msp/drv/pq/pq_v4_0/Makefile \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq_comm.c \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq_comm.h \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq_intf.c \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq_proc.c \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq_table.c \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq_table.h \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq.c \
+           file://source/msp/drv/pq/pq_v4_0/drv_pq.h \
            file://source/msp/drv/pq/pq_v4_0/include/drv_pq_define.h \
            file://source/msp/drv/pq/pq_v4_0/include/drv_pq_ext.h \
+           file://source/msp/drv/pq/pq_v4_0/include/hi_drv_pq.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/common/pq_hal_comm.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/common/pq_hal_comm.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_csc.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_csc.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_gfxbt2020.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_gfxbt2020.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_gfxcsc.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_gfxcsc.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_gfxzme.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_gfxzme.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_table_default.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_table_default.h \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_zme.c \
+           file://source/msp/drv/pq/pq_v4_0/hal/3798cv200/pq_hal_zme.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_csc.c \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_csc.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_gfxcsc.c \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_gfxcsc.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_gfxzme_coef.c \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_gfxzme_coef.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_gfxzme.c \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_gfxzme.h \
            file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_hdr_ext.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_zme_coef.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_zme.c \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_zme.h \
           "
 
 S = "${WORKDIR}"
