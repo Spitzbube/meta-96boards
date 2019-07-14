@@ -79,6 +79,7 @@ SRC_URI = "file://Makefile \
            file://source/common/drv/sys/drv_sys_ext.c \
            file://source/common/drv/userproc/drv_userproc.c \
            file://source/msp/include/hi_audio_codec.h \
+           file://source/msp/include/hi_video_codec.h \
            file://source/msp/include/hi_unf_common.h \
            file://source/msp/include/hi_unf_audio.h \
            file://source/msp/include/hi_unf_avplay.h \
@@ -95,6 +96,7 @@ SRC_URI = "file://Makefile \
            file://source/msp/include/hi_unf_video.h \
            file://source/msp/include/hi_unf_vo.h \
            file://source/msp/include/hi_error_mpi.h \
+           file://source/msp/api/include/hi_mpi_vdec.h \
            file://source/msp/api/higo/include/hi_go_comm.h \
            file://source/msp/api/higo/include/hi_go_errno.h \
            file://source/msp/api/higo/include/hi_go_surface.h \
@@ -102,16 +104,28 @@ SRC_URI = "file://Makefile \
            file://source/msp/drv/include/drv_cipher_ext.h \
            file://source/msp/drv/include/drv_cipher_ioctl.h \
            file://source/msp/drv/include/drv_disp_ext.h \
+           file://source/msp/drv/include/drv_disp_ioctl.h \
            file://source/msp/drv/include/drv_hdmi_ext.h \
            file://source/msp/drv/include/drv_hdmi_ioctl.h \
+           file://source/msp/drv/include/drv_omxvdec_ext.h \
            file://source/msp/drv/include/drv_pdm_ext.h \
            file://source/msp/drv/include/drv_pq_define.h \
+           file://source/msp/drv/include/drv_pq_ext.h \
+           file://source/msp/drv/include/drv_vdec_ext.h \
+           file://source/msp/drv/include/drv_vdec_ioctl.h \
+           file://source/msp/drv/include/drv_venc_ext.h \
+           file://source/msp/drv/include/drv_vi_ext.h \
+           file://source/msp/drv/include/drv_win_ext.h \
+           file://source/msp/drv/include/drv_win_ioctl.h \
            file://source/msp/drv/include/hi_drv_cipher.h \
            file://source/msp/drv/include/hi_drv_disp.h \
            file://source/msp/drv/include/hi_drv_edid.h \
            file://source/msp/drv/include/hi_drv_hdmi.h \
            file://source/msp/drv/include/hi_drv_pdm.h \
+           file://source/msp/drv/include/hi_drv_vdec.h \
            file://source/msp/drv/include/hi_drv_video.h \
+           file://source/msp/drv/include/hi_drv_vpss.h \
+           file://source/msp/drv/include/hi_drv_win.h \
            file://source/msp/drv/hdmi/Makefile \
            file://source/msp/drv/hdmi/hdmi_2_0/hal/ctrl/imagev200/driver/common/si_drv_common.c \
            file://source/msp/drv/hdmi/hdmi_2_0/hal/ctrl/imagev200/driver/common/si_drv_common.h \
@@ -191,7 +205,129 @@ SRC_URI = "file://Makefile \
            file://source/msp/drv/hdmi/hdmi_2_0/drv_hdmi_proc.c \
            file://source/msp/drv/hdmi/hdmi_2_0/drv_hdmi_proc.h \
            file://source/msp/drv/hdmi/hdmi_2_0/drv_hdmi_platform.h \
+           file://source/msp/drv/vo/Makefile \
+           file://source/msp/drv/vo/vdp_v4_0/drv_disp.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv_disp_adp2unf.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv_disp_intf.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv_win.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv_win_intf.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv_disp.h \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_disp_alg_gamma.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_disp_alg_gamma.h \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_disp_alg_rgb2yuv.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_disp_alg_rgb2yuv.h \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_disp_alg_service.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_disp_alg_service.h \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_win_alg_ratio.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/drv_win_alg_ratio.h \
+           file://source/msp/drv/vo/vdp_v4_0/alg/decompress/bitplane_dec.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/decompress/bitstreamdec.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/decompress/decompress_api.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/decompress/decompress_api.h \
+           file://source/msp/drv/vo/vdp_v4_0/alg/decompress/ttv_dec.c \
+           file://source/msp/drv/vo/vdp_v4_0/alg/decompress/ttv_mode.h \
+           file://source/msp/drv/vo/vdp_v4_0/com/drv_disp_version.h \
+           file://source/msp/drv/vo/vdp_v4_0/com/drv_disp_com.h \
+           file://source/msp/drv/vo/vdp_v4_0/com/drv_disp_osal.h \
+           file://source/msp/drv/vo/vdp_v4_0/com/drv_disp_osal.c \
+           file://source/msp/drv/vo/vdp_v4_0/com/drv_disp_debug.h \
+           file://source/msp/drv/vo/vdp_v4_0/com/drv_disp_debug.c \
+           file://source/msp/drv/vo/vdp_v4_0/component/drv_com_logo.c \
+           file://source/msp/drv/vo/vdp_v4_0/component/drv_com_logo.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_cgms.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_cgms.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_display.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_display.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_bufcore.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_bufcore.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_buffer.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_buffer.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_hdr.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_vbi.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_vbi.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_cast.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_cast.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_isr.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_isr.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_sync.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_sync.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_virtual.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_virtual.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_window.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_window.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_buffer.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_buffer.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_frc.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_frc.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_hdr.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_policy.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_policy.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_wbc.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_wbc.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_prc.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_win_priv.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_disp_priv.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_mcvn.c \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_mcvn.h \
+           file://source/msp/drv/vo/vdp_v4_0/drv/drv_vdp_hdr_com.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_disp_hal.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_disp_hal.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_disp_alg_struct.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_vdp_smmu.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_vdp_smmu.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_win_hal.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_win_hal.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_win_hal_adp.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_disp_da.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_disp_da.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/common/drv_disp_hal_adp.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/hal_specific_config.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/hal_specific_config.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/hal_specific_rwzb.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/hal_specific_rwzb.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/hd_date_driver.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/sd_date_driver.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_drv_comm.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_drv_pq_csc.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_drv_pq_zme.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_drv_vid.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_drv_wbc.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_func_pq_csc.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_func_vid.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_chn.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_comm.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_gfx.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_hdr.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_intf.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_mmu.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_tnr.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_vid.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_hal_wbc.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_software_selfdefine.c \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/vdp_software_selfdefine.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_define.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_drv_comm.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_drv_func.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_drv_pq_csc.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_drv_pq_zme.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_drv_vid.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_drv_wbc.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_fpga_define.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_func_pq_csc.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_func_vid.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_chn.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_comm.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_gfx.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_hdr.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_intf.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_mmu.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_tnr.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_vid.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_hal_wbc.h \
+           file://source/msp/drv/vo/vdp_v4_0/hal/98cv200/inc/vdp_ip_define.h \
            file://source/msp/drv/pq/pq_v4_0/include/drv_pq_define.h \
+           file://source/msp/drv/pq/pq_v4_0/include/drv_pq_ext.h \
+           file://source/msp/drv/pq/pq_v4_0/mng/pq_mng_hdr_ext.h \
           "
 
 S = "${WORKDIR}"
