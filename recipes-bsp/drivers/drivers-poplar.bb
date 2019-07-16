@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV="e99b142b4a77326f1114990bb00586768a14dacb"
+SRCREV="9e701cdf4dd424ae7d1a444122a81117b62262b5"
 
 SRC_URI = "git://github.com/spitzbube/hisilicon-linux.git;protocol=https;branch=poplar-msp-drivers"
 
