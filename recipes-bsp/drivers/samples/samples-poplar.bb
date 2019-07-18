@@ -6,7 +6,7 @@ DEPENDS = "driverlibs-poplar"
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV="3199ca50f67c8050195c07df689e953a2afb7dea"
+SRCREV="314271219bf012b95d54481192fcbeecd53e7d48"
 
 SRC_URI = "git://github.com/spitzbube/hisilicon-samples.git;protocol=https;branch=test/poplar-samples"
 

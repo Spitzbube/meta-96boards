@@ -4,9 +4,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8860c6daecb5fe2cbc4eb4fc9d9b33f6"
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV="96bebace78bc87ddfced940e7fdaa28ce59f9b2a"
+SRCREV="2742d30f3ff97871e658db80a90fd418fdc036f9"
 
 SRC_URI = "git://github.com/spitzbube/hisilicon-linux.git;protocol=https;branch=poplar-msp-drivers"
+           "
 
 S = "${WORKDIR}/git"
 
